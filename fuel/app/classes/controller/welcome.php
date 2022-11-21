@@ -10,6 +10,11 @@
  * @link       https://fuelphp.com
  */
 
+use Fuel\Core\Controller;
+use Fuel\Core\Presenter;
+use Fuel\Core\Response;
+use Fuel\Core\View;
+
 /**
  * The Welcome Controller.
  *

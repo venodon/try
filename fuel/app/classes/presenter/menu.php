@@ -2,6 +2,10 @@
 
 use Fuel\Core\Presenter;
 
+/**
+ * @property string $title
+ * @property Model_Post[] $posts
+ */
 class Presenter_Menu extends Presenter
 {
     public function view()

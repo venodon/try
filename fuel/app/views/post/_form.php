@@ -24,7 +24,7 @@ use Fuel\Core\Input;
         </div>
         <div class="form-group">
             <?php echo Form::label('Статус', 'status', array('class' => 'control-label')); ?>
-            <?php echo Form::select('status', Input::post('status', isset($post) ? $post->status : ''), [Model_Post::STATUS_LIST], array('class' => 'col-md-4 form-control', 'placeholder' => 'Status')); ?>
+            <?php echo Form::select('status', Input::post('status', isset($post) ? $post->status : ''), Model_Post::STATUS_LIST, array('class' => 'col-md-4 form-control', 'placeholder' => 'Status')); ?>
         </div>
 
         <div class="form-group">

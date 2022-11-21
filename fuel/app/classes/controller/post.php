@@ -2,6 +2,7 @@
 
 use Fuel\Core\Controller_Template;
 use Fuel\Core\Input;
+use Fuel\Core\Presenter;
 use Fuel\Core\Response;
 use Fuel\Core\Session;
 use Fuel\Core\View;
@@ -16,9 +17,10 @@ class Controller_Post extends Controller_Template
     public function action_index()
     {
         $data['posts'] = Model_Post::find('all');
-        $this->template->title = "Posts";
+        $this->template->title = "Посты";
+        $presenterMenu = Presenter::forge('menu');
+        $data['presenterMenu'] = $presenterMenu;
         $this->template->content = View::forge('post/index', $data);
-
     }
 
     public function action_view($id = null)

@@ -3,6 +3,7 @@
 use Fuel\Core\Controller_Template;
 use Fuel\Core\Input;
 use Fuel\Core\Presenter;
+use Fuel\Core\Request;
 use Fuel\Core\Response;
 use Fuel\Core\Session;
 use Fuel\Core\View;
@@ -16,6 +17,7 @@ class Controller_Post extends Controller_Template
 
     public function action_index()
     {
+        $widget = Request::forge('data/list')->execute();
         $data['posts'] = Model_Post::find('all');
         $this->template->title = "Посты";
         $presenterMenu = Presenter::forge('menu');

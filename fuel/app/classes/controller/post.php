@@ -17,8 +17,10 @@ class Controller_Post extends Controller_Template
 
     public function action_index()
     {
-        $widget = Request::forge('data/list')->execute();
-        $data['posts'] = Model_Post::find('all');
+//        $widget = Request::forge('data/list')->execute();
+        $category = Model_Category::find(1);
+        $d = $category->posts;
+        $data['posts'] = Model_Post::find('all',['related'=>'category']);
         $this->template->title = "Посты";
         $presenterMenu = Presenter::forge('menu');
         $data['presenterMenu'] = $presenterMenu;

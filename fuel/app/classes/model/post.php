@@ -1,8 +1,5 @@
 <?php
 
-use Fuel\Core\Validation;
-use Orm\Model;
-
 /**
  * @property $title
  * @property $preview
@@ -10,8 +7,9 @@ use Orm\Model;
  * @property $status
  * @property $created_at
  * @property $updated_at
+ * @property Model_Category $category
  */
-class Model_Post extends Model
+class Model_Post extends \Orm\Model
 {
     public $views; //просмотры
 
@@ -38,6 +36,7 @@ class Model_Post extends Model
         'preview',
         'body',
         'status',
+        'category_id',
         'created_at',
         'updated_at',
     );
@@ -51,7 +50,7 @@ class Model_Post extends Model
             'events' => array('before_save'),
             'mysql_timestamp' => false,
         ),
-        'Views' => [
+        'Observer_Views' => [
             'events' => ['after_load']
         ]
     );
@@ -66,4 +65,16 @@ class Model_Post extends Model
 
         return $val;
     }
+
+    /**
+     * @var string[][]
+     */
+    protected static $_belongs_to = [
+        'category' => [
+            'model_to' => 'Model_Category',
+            'key_from' => 'category_id',
+            'key_to' => 'id',
+        ]
+    ];
+
 }

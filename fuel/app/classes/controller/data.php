@@ -16,7 +16,7 @@ class Controller_Data extends Controller_Rest
         $perPage = Input::get('perPage') ?? 3;
         return $this->response([
             'success' => true,
-            'posts' => Model_Post::query()->where('status', '=', Model_Post::STATUS_ACTIVE)->limit($perPage)->offset(($page - 1) * $perPage)->get(),
+            'posts' => Model_Post::find('first')->to_array(true),
         ]);
     }
 
@@ -42,7 +42,6 @@ class Controller_Data extends Controller_Rest
     public function post_post()
     {
         $id = (int)Input::post('id');
-        $post = null;
         if (!$id) {
             $post = new Model_Post();
         } else {
@@ -78,5 +77,4 @@ class Controller_Data extends Controller_Rest
         }
         return $this->response(['success' => true]);
     }
-
 }

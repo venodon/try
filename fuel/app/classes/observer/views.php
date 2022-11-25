@@ -1,9 +1,10 @@
 <?php
 
+
 class Observer_Views extends Orm\Observer
 {
     /**
-     * @param \Orm\Model $model
+     * @param $model
      * @return void
      */
     public function after_load(Orm\Model $model)

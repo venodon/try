@@ -5,7 +5,6 @@
  */
 
 use Fuel\Core\Html;
-
 ?>
 <h2>Список <span class='muted'>постов</span></h2>
 <br>
@@ -19,6 +18,7 @@ use Fuel\Core\Html;
                 <th>Превью</th>
                 <th>Текст</th>
                 <th>Статус</th>
+                <th>Категория</th>
                 <th>&nbsp;</th>
             </tr>
             </thead>
@@ -30,6 +30,7 @@ use Fuel\Core\Html;
                     <td><?php echo $item->preview; ?></td>
                     <td><?php echo $item->body; ?></td>
                     <td><?php echo $item->getStatusName($item->status); ?></td>
+                    <td><?php echo $item->category->title; ?></td>
                     <td>
                         <div class="btn-toolbar">
                             <div class="btn-group">
